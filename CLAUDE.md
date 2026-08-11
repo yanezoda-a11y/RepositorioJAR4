@@ -10,7 +10,19 @@ contexto e instrucciones persistentes para futuras sesiones de Claude.
 
 - **Metricool brandId**: `6689346` (label `yanezoda_1`, owner `yanezoda@gmail.com`)
 - **Timezone**: `Europe/Madrid`
-- Redes conectadas: Facebook, Instagram, LinkedIn, TikTok, YouTube, Twitter/X
+- **Redes conectadas y en uso**: Facebook, Instagram, LinkedIn, TikTok, YouTube.
+- **Redes conectadas pero SIN usar todavía**: Pinterest, Google Business Profile
+  (GBP). Están disponibles en la cuenta de Metricool pero no se les ha
+  publicado nada aún — no programar nada ahí sin confirmar antes con el
+  usuario.
+- **Cuentas publicitarias conectadas** (no son redes de publicación orgánica):
+  Facebook Ads, Google Ads.
+- **X/Twitter: NO disponible.** El usuario no tiene acceso a esa cuenta y
+  pidió eliminarla del flujo de trabajo (confirmado 2026-08-11). Ya no
+  aparece en `networksData` de `getBrandSettings`, así que está
+  desconectada de Metricool. **No programar publicaciones en Twitter/X.**
+  Si algún post antiguo la sigue teniendo como red, hay que corregirlo
+  (quitarla o pasar el contenido a otra red).
 
 ## Logo de marca
 
