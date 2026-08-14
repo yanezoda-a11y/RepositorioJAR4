@@ -81,6 +81,33 @@ negocio (Canva, Gamma, etc.):
 Esta regla aplica a todas las sesiones futuras, no solo a la conversación en
 la que se definió.
 
+## Transparencia IA (Reglamento UE 2024/1689, art. 50) — obligatorio desde 2026-08-02
+
+Desde el 2 de agosto de 2026 aplican las obligaciones de transparencia del
+artículo 50 del Reglamento europeo de IA (deepfakes y sistemas conversacionales
+que interactúan con personas). Aplican a cualquier proyecto de este negocio
+que use avatar digital o asistente automatizado de contacto con clientes:
+
+- **Vídeos con avatar de Odair** (HeyGen u otra herramienta de clonación de
+  cara/voz): todo vídeo debe llevar el texto **"Avatar digital de Odair
+  Yanez generado mediante IA"** visible en pantalla como overlay de texto —
+  no basta con ponerlo solo en la descripción/caption de la red social, que
+  puede quedar oculta tras "ver más". Añadirlo igual que el resto de textos
+  del vídeo, idealmente visible al inicio y/o de forma persistente en una
+  esquina durante todo el vídeo.
+- **Asistente virtual de contacto con clientes** (bot de WhatsApp u otro
+  canal automatizado con LLM): el primer mensaje de cualquier conversación
+  debe identificarse como IA antes de pedir cualquier dato del cliente, con
+  este texto fijo:
+  > "Hola, soy el asistente virtual de Servicio Técnico Yanez. Recogeré los
+  > datos del trabajo y Odair revisará personalmente el presupuesto y la
+  > disponibilidad."
+
+  No cambiar esta redacción sin confirmarlo antes con el usuario.
+
+Esta regla aplica a todas las sesiones futuras, no solo a la conversación en
+la que se definió.
+
 ## Patrón habitual de publicación (una "campaña" por caso)
 
 Cada trabajo/caso real (avería resuelta, instalación, consejo) se suele
