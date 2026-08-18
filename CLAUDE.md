@@ -15,13 +15,14 @@ independientemente del equipo/dispositivo desde el que se inicie la sesión
 - **Teléfono/WhatsApp de contacto**: `655 292 399` — incluir siempre en las
   publicaciones como llamada a la acción (llamar, WhatsApp, "pide presupuesto
   gratis").
-- **Redes conectadas y en uso**: Facebook, Instagram, LinkedIn, TikTok, YouTube.
-- **Redes conectadas pero SIN usar todavía**: Pinterest, Google Business Profile
-  (GBP). Están disponibles en la cuenta de Metricool pero no se les ha
-  publicado nada aún. Para usar Pinterest hace falta el nombre exacto de un
-  tablero (`pinterestData.boardId` o nombre humano) — pedírselo al usuario
-  antes de programar nada ahí. No programar nada en ninguna de las dos sin
-  confirmar antes con el usuario.
+- **Redes conectadas y en uso**: Facebook, Instagram, LinkedIn, TikTok,
+  YouTube, Pinterest, Google Business Profile (GBP).
+  - Pinterest: usar `network: "pinterest"`. Tablero ya usado por la
+    automatización externa (ver más abajo): boardId `578923795790409406`.
+  - Google Business Profile: en `getScheduledPosts` aparece con
+    `network: "gmb"` (no "googleBusinessProfile") y `gmbData: {"type":
+    "publication"}`. Confirmar con el usuario antes de programar algo ahí
+    manualmente si no hay ya un patrón claro que seguir.
 - **Cuentas publicitarias conectadas** (no son redes de publicación orgánica):
   Facebook Ads, Google Ads.
 - **X/Twitter: NO disponible.** El usuario no tiene acceso a esa cuenta y
@@ -99,6 +100,31 @@ Todas las publicaciones creadas deben llevar `draft: false` y
 `autoPublish: true` — si no, se quedan "atascadas" y nunca se publican solas
 (ver problema conocido más abajo).
 
+## Automatización externa publicando contenido (descubierto 2026-08-18)
+
+Además del trabajo hecho a mano en estas sesiones de Claude, **hay algo
+externo (probablemente un workflow n8n, no gestionado desde aquí) que crea y
+publica campañas por su cuenta** en Facebook, Instagram, LinkedIn, TikTok,
+YouTube, Pinterest y Google Business Profile, con el mismo patrón de
+campaña descrito arriba (un caso → varios posts por red). No hay visibilidad
+de dónde vive ni cómo se controla ese workflow desde esta sesión.
+
+Consecuencias prácticas:
+
+- **No asumir que "el estado de la semana" de una sesión anterior sigue
+  siendo la foto real.** Puede haber campañas nuevas creadas por esa
+  automatización que ninguna sesión de Claude programó. Comprobar siempre
+  con `getScheduledPosts` antes de dar nada por hecho.
+- Esa automatización **también genera imágenes PNG y las manda a TikTok**,
+  así que cae en el mismo error recurrente de formato (ver abajo). Cuando el
+  usuario reenvíe una captura de un email de error de Metricool, buscar el
+  post por fecha/hora con `getScheduledPosts` y aplicar el mismo workaround
+  de conversión a JPG.
+- No se ha identificado ni hay que intentar modificar el origen de esa
+  automatización — el rol de Claude aquí es detectar y corregir los fallos
+  puntuales que produce (formato, resolución, draft/autoPublish), no
+  sustituirla ni pararla.
+
 ## Problemas técnicos conocidos y cómo resolverlos
 
 - **TikTok rechaza fotos en PNG.** Solo acepta JPEG/WEBP para posts de foto.
@@ -140,8 +166,13 @@ Todas las publicaciones creadas deben llevar `draft: false` y
 
 ## Estado de la semana (referencia, puede quedar desactualizado)
 
-A fecha 2026-08-11 hay campañas ya programadas y activadas (`draft:false`,
-`autoPublish:true`) para el 12, 13, 14, 15 y 16 de agosto, más posts sueltos
-de Facebook los días 17, 18 y 19. Antes de dar nada por hecho, comprobar el
-estado real con `getScheduledPosts` — esta sección es solo una foto de
-referencia, no la fuente de verdad.
+Esta sección se queda obsoleta muy rápido, tanto por el trabajo manual de
+las sesiones de Claude como por la automatización externa descrita arriba.
+**No confiar en esta sección para decidir nada — es solo la última foto
+tomada, no la fuente de verdad.** Comprobar siempre el estado real con
+`getScheduledPosts` antes de actuar.
+
+Última foto: a fecha 2026-08-18 hay contenido programado/publicado hasta el
+19 de agosto, incluyendo campañas creadas manualmente en sesiones de Claude
+y campañas de la automatización externa (riego automático, renovación de
+instalación eléctrica, consejos de electricidad de verano, entre otras).
